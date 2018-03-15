@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
 
   before_action :set_room, only: [:show, :update, :destroy]
+
   def index
     @rooms = Room.all
     json_response(serialize(@rooms))
@@ -16,12 +17,12 @@ class RoomsController < ApplicationController
   end
 
   def update
-    if @room then @room.update(room_params)
+    if @room then @room.update(room_params) end
     head :no_content
   end
 
   def destroy
-    if @room then @room.destroy
+    if @room then @room.destroy end
     head :no_content
   end
 
