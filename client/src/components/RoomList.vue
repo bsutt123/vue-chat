@@ -16,7 +16,6 @@
     </ul>
     <new-room-modal
       name="new-room"
-      :classes="modalClasses"
       :adaptive="true"
       :width="300"
       :height="200"
@@ -24,18 +23,19 @@
       <div :class="$style.modalContainer">
         <h3 :class="$style.modalHeading"> Name your new room </h3>
         <input :class="$style.newRoomInput" type="text" v-model="newRoomName" />
-        <button @click="closeModal" :class="$style.modalButton" >Close Modal</button>
+        <button @click="closeModal" :class="$style.modalButton" > Close Modal </button>
         <button @click="addRoom(newRoomName)" :class="$style.modalButton" > Add Room </button>
       </div>
     </new-room-modal>
   </div>
 </template>
 
-
 <script>
 import Vue from 'vue';
-import { mapActions } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
 import VModal from 'vue-js-modal';
+
+const { mapState, mapActions } = createNamespacedHelpers('rooms');
 
 Vue.use(VModal, { componentName: 'new-room-modal' });
 
@@ -47,14 +47,17 @@ export default {
     };
   },
   computed: {
-    rooms() {
-      return this.$store.getters.rooms;
-    },
+    ...mapState({
+      rooms: state => state.rooms,
+      activeRoom: state => state.activeRoom,
+    }),
   },
   methods: {
     ...mapActions([
       'getRooms',
-      'addRoom']),
+      'addRoom',
+      'setActiveRoom',
+    ]),
     openModal() {
       this.$modal.show('new-room');
     },
@@ -67,12 +70,15 @@ export default {
   },
 };
 </script>
+
 <style lang="postcss" module>
+@import '../styles/colors.css';
 
 .container {
   padding: 2rem;
   height: 100%;
-  background-color: gray(210);
+  background-color: var(--colorPrimary);
+  color: white;
 }
 
 .headingBox {
@@ -88,11 +94,19 @@ export default {
 .newRoomButton {
   margin-bottom: 1rem;
   padding: .5rem 1rem;
+  color: black;
+  transition: all .1s linear;
+
+  &:hover {
+    background-color: gray(210);
+    transform: translateY(-4px);
+  }
 }
 
 .roomList {
-  font-size: 0.8rem;
+  font-size: .9rem;
   list-style: none;
+
   & > *:not(:last-child) {
     margin-bottom: 0.5rem;
   }
@@ -110,6 +124,7 @@ export default {
 .modalContainer {
   text-align: center;
   padding: 1rem;
+  color: black;
 }
 
 .modalHeading {
@@ -119,6 +134,7 @@ export default {
 .newRoomInput {
   width: 90%;
   display: block;
+  color: black;
   margin: * auto .5rem auto;
 }
 
