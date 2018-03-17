@@ -17,12 +17,12 @@ class RoomsController < ApplicationController
   end
 
   def update
-    if @room then @room.update(room_params) end
+    @room.update(room_params) if @room
     head :no_content
   end
 
   def destroy
-    if @room then @room.destroy end
+    @room.destroy if @room
     head :no_content
   end
 
