@@ -64,7 +64,7 @@ RSpec.describe RoomsController, type: :request do
 
       context "invalid attributes" do
 
-        let(:valid_attributes) {{name: nil, other: "Brady"}}
+        let(:valid_attributes) {{other: "Brady"}}
         it "doesn't create a record" do
           json = json_data
           expect(json[:id]).to be_nil
