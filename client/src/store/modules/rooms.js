@@ -31,8 +31,9 @@ const actions = {
       commit('addRoomToState', room);
     });
   },
-  setActiveRoom({ commit }, roomName) {
-    commit('setActiveRoom', roomName);
+  setActiveRoom({ commit, dispatch }, room) {
+    dispatch('messages/getMessages', room, { root: true });
+    commit('setActiveRoom', room);
   },
 };
 
@@ -43,9 +44,13 @@ const mutations = {
   addRoomToState(state, room) {
     state.rooms = state.rooms.concat(room);
   },
+  setActiveRoom(state, room) {
+    state.activeRoom = room;
+  },
 };
 
 export default {
+  namespaced: true,
   state: initialState,
   getters,
   actions,
