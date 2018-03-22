@@ -9,6 +9,7 @@
 import RoomList from '@/components/RoomList';
 import MessageList from '@/components/MessageList';
 
+
 export default {
   name: 'Home',
   components: {
@@ -19,7 +20,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style lang="postcss">
 :root {
   --colorPrimary: #673ab7;
 }
@@ -27,5 +28,18 @@ export default {
   display: grid;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
+}
+
+.btn {
+  font-size: .75rem;
+  margin-bottom: 1rem;
+  padding: .25rem .5rem;
+  color: black;
+  transition: all .1s linear;
+
+  &:hover {
+    background-color: gray(210);
+    transform: translateY(-4px);
+  }
 }
 </style>
