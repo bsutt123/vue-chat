@@ -1,8 +1,11 @@
 <template>
   <div :class='$style.container'>
+    <div :class='$style.signInBox'>
+      <sign-in></sign-in>
+      <sign-up></sign-up>
+    </div>
     <div :class='$style.headingBox'>
-      <h3 :class='$style.heading'> Rooms </h3>
-      <button @click="openModal" :class="$style.newRoomButton"> Create a new Room </button>
+      <h2 :class='$style.heading'> Rooms </h2>
     </div>
     <ul :class='$style.roomList'>
       <li
@@ -14,38 +17,20 @@
         {{ room.name }}
       </li>
     </ul>
-    <new-room-modal
-      name="new-room"
-      :adaptive="true"
-      :width="300"
-      :height="200"
-    >
-      <div :class="$style.modalContainer">
-        <h3 :class="$style.modalHeading"> Name your new room </h3>
-        <input :class="$style.newRoomInput" type="text" v-model="newRoomName" />
-        <button @click="closeModal" :class="$style.modalButton" > Close Modal </button>
-        <button @click="addRoom(newRoomName)" :class="$style.modalButton" > Add Room </button>
-      </div>
-    </new-room-modal>
+    <room-modal></room-modal>
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
 import { createNamespacedHelpers } from 'vuex';
-import VModal from 'vue-js-modal';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import RoomModal from './RoomModal';
 
 const { mapState, mapActions } = createNamespacedHelpers('rooms');
 
-Vue.use(VModal, { componentName: 'new-room-modal' });
-
 export default {
   name: 'RoomList',
-  data() {
-    return {
-      newRoomName: '',
-    };
-  },
   computed: {
     ...mapState({
       rooms: state => state.rooms,
@@ -55,18 +40,16 @@ export default {
   methods: {
     ...mapActions([
       'getRooms',
-      'addRoom',
       'setActiveRoom',
     ]),
-    openModal() {
-      this.$modal.show('new-room');
-    },
-    closeModal() {
-      this.$modal.hide('new-room');
-    },
   },
   created() {
     this.getRooms();
+  },
+  components: {
+    'sign-in': SignIn,
+    'sign-up': SignUp,
+    'room-modal': RoomModal,
   },
 };
 </script>
@@ -75,10 +58,18 @@ export default {
 @import '../styles/colors.css';
 
 .container {
-  padding: 2rem;
+  padding: 1rem;
   height: 100%;
   background-color: var(--colorPrimary);
   color: white;
+}
+
+.signInBox {
+  text-align: center;
+
+  & > *:not(:last-child) {
+    margin-right: 1rem;
+  }
 }
 
 .headingBox {
@@ -106,6 +97,8 @@ export default {
 .roomList {
   font-size: .9rem;
   list-style: none;
+  margin-bottom: 1rem;
+  max-width: 200px;
 
   & > *:not(:last-child) {
     margin-bottom: 0.5rem;
@@ -121,29 +114,5 @@ export default {
   }
 }
 
-.modalContainer {
-  text-align: center;
-  padding: 1rem;
-  color: black;
-}
-
-.modalHeading {
-  margin-bottom: 1rem;
-}
-
-.newRoomInput {
-  width: 90%;
-  display: block;
-  color: black;
-  margin: * auto .5rem auto;
-}
-
-.modalButton {
-  display: inline-block;
-  padding: .25rem .5rem;
-  font-size: .8rem;
-  border-radius: 2px;
-  box-shadow: none;
-}
 
 </style>
