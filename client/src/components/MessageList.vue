@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.container" >
+    <h3 :class="$style.heading" > {{ activeRoom.name }} </h3>
     <ul :class="$style.messageList" >
       <li
         v-for='(message, index) in messages'
@@ -13,16 +14,20 @@
 </template>
 
 <script>
-import {createNamespacedHelpers} from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
 
-const { mapActions, mapState } = createNamespacedHelpers('messages');
+const { mapState } = createNamespacedHelpers('messages');
+
 export default {
   computed: {
     ...mapState({
       messages: state => state.messages,
     }),
+    activeRoom() {
+      return this.$store.getters['rooms/activeRoom'];
+    },
   },
-}
+};
 </script>
 
 <style lang="postcss" module>
@@ -31,8 +36,15 @@ export default {
 .container {
 }
 
+.heading {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 2rem;
+}
+
 .messageList {
   list-style: none;
+  font-size: .8rem;
 
   & > *:not(:last-child) {
     margin-bottom: 1rem;
