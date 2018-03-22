@@ -2,10 +2,14 @@ import axios from 'axios';
 
 const initialState = {
   messages: [],
+  activeRoom: '',
 };
 
 const getters = {
   messages: state => state.messages,
+  activeRoom(state, modGetters, rootState, rootGetters) {
+    return rootGetters.rooms.activeRoom;
+  },
 };
 
 const actions = {

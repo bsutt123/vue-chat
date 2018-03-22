@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const initialState = {
   rooms: [],
-  activeRoom: undefined,
+  activeRoom: '',
 };
 
 const getters = {
