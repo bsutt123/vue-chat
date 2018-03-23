@@ -37,14 +37,14 @@
             type="submit"
             class="btn"
             :class="$style.modalButton"
-            @click="submit"
+            @click.prevent="submit"
           >
             Submit
           </button>
           <button
             class="btn"
             :class="$style.modalButton"
-            @click="close"
+            @click.prevent="close"
           >
             Close Modal
           </button>
@@ -92,8 +92,7 @@ export default {
     open() {
       this.$modal.show('sign-in');
     },
-    close(event) {
-      event.preventDefault();
+    close() {
       this.$modal.hide('sign-in');
     },
     userExists() {
