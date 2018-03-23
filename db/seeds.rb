@@ -13,7 +13,7 @@ end
 rooms = Room.all
 
 rooms.each do |room|
-  12.times do
+  20.times do
     Message.create(content: Faker::HarryPotter.quote, room: room)
   end
 end
