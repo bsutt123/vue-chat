@@ -10,11 +10,13 @@
         {{ message.content }}
       </li>
     </ul>
+    <message-creator></message-creator>
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex';
+import MessageCreator from './MessageCreator';
 
 const { mapState } = createNamespacedHelpers('messages');
 
@@ -27,6 +29,9 @@ export default {
       return this.$store.getters['rooms/activeRoom'];
     },
   },
+  components: {
+    'message-creator': MessageCreator,
+  },
 };
 </script>
 
@@ -34,6 +39,7 @@ export default {
 
 
 .container {
+  position: relative;
 }
 
 .heading {
@@ -45,6 +51,7 @@ export default {
 .messageList {
   list-style: none;
   font-size: .8rem;
+  margin-bottom: 6rem;
 
   & > *:not(:last-child) {
     margin-bottom: 1rem;
