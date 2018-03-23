@@ -10,7 +10,7 @@
       <div :class="$style.modalContainer">
         <h3 :class="$style.modalHeading" > Log in </h3>
         <hr>
-        <form id="sign-up" >
+        <form id="sign-up" v-on:submit.prevent='submit'>
           <label
             :class="$style.formLabel"
           >
@@ -45,13 +45,13 @@
             type="password"
           />
           <button
-            @click="submit"
+            type="submit"
             class="btn"
           >
             Submit
           </button>
           <button
-            @click="close"
+            @click.prevent="close"
             class="btn"
           >
             Close Modal
@@ -103,8 +103,7 @@ export default {
     open() {
       this.$modal.show('sign-up');
     },
-    close(event) {
-      event.preventDefault();
+    close() {
       this.$modal.hide('sign-up');
     },
   },
