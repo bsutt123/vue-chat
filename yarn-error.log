@@ -1,0 +1,32 @@
+Arguments: 
+  /Users/brady/.nvm/versions/node/v9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js unit
+
+PATH: 
+  /Users/brady/.rvm/gems/ruby-2.4.1/bin:/Users/brady/.rvm/gems/ruby-2.4.1@global/bin:/Users/brady/.rvm/rubies/ruby-2.4.1/bin:/Users/brady/.nvm/versions/node/v9.8.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/brady/.rvm/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.8.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Couldn't find a package.json file in "/Users/brady/vue/vue-chat"
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:40048:15
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:109:13
+      at <anonymous>
