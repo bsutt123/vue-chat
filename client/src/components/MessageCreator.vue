@@ -44,7 +44,7 @@ export default {
 .container {
   position: fixed;
   background: white;
-  left: 200px;
+  left: 15rem;
   bottom: 0;
   right: 0;
 }

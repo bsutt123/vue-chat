@@ -35,6 +35,5 @@ describe('MessageList', () => {
 
   it('closes the modal', () => {
     wrapper.find('.newRoomButton').trigger('click')
-    console.log(wrapper.find('.modalContainer').html())
   })
 });
