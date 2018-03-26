@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageCreator renders the snapshot correctly 1`] = `
+<div class="container">
+    <form class="form">
+        <textarea type="text" class="newMessageInput"></textarea>
+        <button type="submit" class="btn submitButton">
+            Submit
+        </button>
+    </form>
+</div>
+`;
