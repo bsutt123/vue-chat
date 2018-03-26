@@ -5,7 +5,7 @@
       name="sign-up"
       :adaptive="true"
       :width="600"
-      :height="300"
+      height="auto"
     >
       <div :class="$style.modalContainer">
         <h3 :class="$style.modalHeading" > Log in </h3>
