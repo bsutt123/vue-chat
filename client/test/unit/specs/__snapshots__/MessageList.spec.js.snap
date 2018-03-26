@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageList renders the message list 1`] = `
+<div class="container">
+    <h3 class="heading"> Room 1 </h3>
+    <ul class="messageList">
+        <li class="messageItem">
+
+        </li>
+        <li class="messageItem">
+
+        </li>
+        <li class="messageItem">
+
+        </li>
+    </ul>
+    <!---->
+</div>
+`;
