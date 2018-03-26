@@ -7,7 +7,6 @@ const getters = {
   uid: state => state.uid,
   accessToken: state => state.accessToken,
   client: state => state.client,
-
 };
 
 const actions = {
