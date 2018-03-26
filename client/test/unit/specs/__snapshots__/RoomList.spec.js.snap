@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoomList calls the store action when expected 1`] = `
+<div class="container">
+    <div class="signInBox">
+        <!---->
+        <!---->
+    </div>
+    <div class="headingBox">
+        <h2 class="heading"> Rooms </h2>
+    </div>
+    <ul class="roomList">
+        <li class="roomItem">
+            Room 1
+        </li>
+        <li class="roomItem">
+            Room 2
+        </li>
+        <li class="roomItem">
+            Room 3
+        </li>
+    </ul>
+    <!---->
+</div>
+`;
