@@ -24,10 +24,8 @@ export default {
   computed: {
     ...mapState({
       messages: state => state.messages,
+      activeRoom: (state, getters) => getters.activeRoom,
     }),
-    activeRoom() {
-      return this.$store.getters['rooms/activeRoom'];
-    },
   },
   components: {
     'message-creator': MessageCreator,
