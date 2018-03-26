@@ -11,7 +11,7 @@
       name="new-room"
       :adaptive="true"
       :width="300"
-      :height="200"
+      height="auto"
     >
       <div :class="$style.modalContainer">
         <h3 :class="$style.modalHeading"> Name your new room </h3>
