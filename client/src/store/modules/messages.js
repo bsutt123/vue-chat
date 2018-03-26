@@ -23,8 +23,8 @@ const actions = {
         commit('setMessages', messages);
       });
   },
-  createMessage({ commit, localGetters }, message) {
-    const activeRoom = localGetters.activeRoom;
+  createMessage({ commit, getters } , message) {
+    const activeRoom = getters.activeRoom;
     axios.post(`/api/rooms/${activeRoom.id}/messages`, {
       content: message,
     })
