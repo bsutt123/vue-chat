@@ -5,7 +5,7 @@ When I want to get started using a new front end framework, I like to create ano
 Vue-Chat added a new element to my traditional chatting services (which can be found on my github page under "chatty" if you would like to look at those as well), in that instead of using Firebase to implement a Backend as a Service, I built a Rails API that I could use to interact with any frontend, ambiguous of which technology is used. Future implementations will likely hinge on this versions server implementation and they will get messages and users using the same backend http requests. This kind of architecture where the backend interacts with the frontend through an API is powerful, and I think it makes scaling applications or modifying technologies simpler.
 
 ## Back End
----
+
 The Backend for this application was created using Ruby on Rails in API mode. 
 
 ### Ruby on Rails Versioning
@@ -93,7 +93,7 @@ The system when queried correctly will respond with a JSON object serialized usi
 - Relationships: `belongs_to :room`
 
 ## Frontend
----
+
 The Front End of the application was built using [vue-cli](https://github.com/vuejs/vue-cli) an amazing tool for scaffolding out Vue Single Page Applications. 
 
 ### Additional Dependencies
@@ -164,11 +164,11 @@ And to submit a new message for the current active room, fill out the text are a
 Its as simple as that to use.
 
 ## Contributing
----
+
 Vue-Chat is not looking to active contributors, as it is only intended to be a personal project that I can use to enhance my skills. However if you would like to fork the repository and add something to practice and add to you _own_ skills in Vue and Ruby on Rails, you are welcome to fork the repository as long as you don't claim the work as your own
 
 ## Future Work
----
+
 Future work for the project includes...
 
 - More robust usage of authorization
@@ -179,7 +179,6 @@ Future work for the project includes...
 There are of course many more possible additions, but these 4 are the next on the list of developed features
 
 ## Testing
----
 ### Backend
 
 Backed tests are implemented using [rspec-rails](https://github.com/rspec/rspec-rails) and can be run with the following command
@@ -206,5 +205,4 @@ yarn run unit
 I don't recommned running the full `test` command as it will run Unit and E2E tests, and the E2E tests have not yet been implemented fully on the front end.
 
 ## Special Thanks
----
 This project would not have been possible with the amazing work of the Vue and Rails teams. The frameworks that they have created have made projects like this not only possible to create in a short time, but also ensured that the process of developing them is fun in and of itself.
